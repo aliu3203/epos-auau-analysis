@@ -6,11 +6,12 @@
 
 # Live generator instances: run dumps, logs, 90 MB working ROOT files.
 # (The *-mic.py files in here are per-run dumps, not input cards.)
-epos1/
-epos2/
-epos3/
-epos4/
-epos5/
+# (anchored: must not match scripts/epos1/ etc.)
+/epos1/
+/epos2/
+/epos3/
+/epos4/
+/epos5/
 
 # --- tracked: analysis macros, headers, run wrappers, docs ---
 !*.C
