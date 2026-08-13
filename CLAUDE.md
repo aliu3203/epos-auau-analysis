@@ -13,6 +13,31 @@ empirically during the 2026-07 elliptic-flow analysis of `auau200-7`.
   skips instances whose `epos` process is still alive (pgrep guard), moves finished
   `z-auau_run_N.root` into the dataset with the next free index, restarts each instance
   in an isolated subshell. `RESTART=0` = harvest only.
+- `scripts/` — the production scripts above, versioned (2026-08-13). They physically live
+  here; `~/epos_scheduler.sh`, `~/cycle_epos.sh`, `~/run_all.sh`, `~/run.sh`, `~/startup.sh`
+  and `~/epos{1..5}/startup.sh` are **symlinks into this directory**. Edit either path — same file.
+
+## Version control
+
+Git repo at the project root since 2026-08-13. Tracked: `*.C`, `*.h`, `*.sh`, `*.md`,
+`idt.dt`/`read.txt`/`good_files.txt`/`bad_files.txt`, HEPData CSVs, and small outputs
+(`cen*.root`, `*.png`) so `MakeFigure_*.C` runs from a clean checkout without a re-loop.
+
+`.gitignore` is a **whitelist** — it ignores `*` and re-includes only the above. This is
+deliberate: 150 GB of `z-*.root` sits in the same directories as the macros, so a blacklist
+plus one `git add .` would commit a 93 MB event file permanently. When adding a new file
+type worth tracking, add a `!pattern` line rather than removing the `*`.
+
+Remotes: `backup` → `/home/aliu/backup/auau-analysis.git` (bare, on the other physical
+disk `nvme0n1p3`; `git push backup main`).
+
+**After a reboot**: `/media/Students` must be mounted *before* the scheduler daemon is
+restarted, or every `~/…startup.sh` symlink dangles and the epos runs fail at `source`.
+Check with `readlink -e ~/cycle_epos.sh` (empty output = not mounted yet). Restart with:
+`cd ~ && nohup ./epos_scheduler.sh auau200-7 > scheduler.log 2>&1 &`
+
+Known bug, unfixed: `scripts/run_all.sh` still points `JINBASE` at the dead
+`/media/Disk_Jin/aliu` path. `cycle_epos.sh` (what the daemon actually calls) is correct.
 
 ## Dataset: TTree `teposevent` — CRITICAL branch semantics
 
