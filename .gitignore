@@ -1,0 +1,43 @@
+# Whitelist repo: the tree also holds ~150 GB of EPOS output, so everything is
+# ignored by default and only source-like files are re-included below.
+*
+!*/
+!.gitignore
+
+# Live generator instances: run dumps, logs, 90 MB working ROOT files.
+# (The *-mic.py files in here are per-run dumps, not input cards.)
+epos1/
+epos2/
+epos3/
+epos4/
+epos5/
+
+# --- tracked: analysis macros, headers, run wrappers, docs ---
+!*.C
+!*.h
+!*.sh
+!*.md
+
+# --- tracked: small inputs and bookkeeping ---
+!idt.dt
+!read.txt
+!good_files.txt
+!bad_files.txt
+!*.csv
+
+# --- tracked: analysis results small enough to keep, so MakeFigure_*.C
+#     macros run from a clean checkout without a 20 min re-loop ---
+!cen*.root
+!*.png
+
+# --- never tracked: ROOT/ACLiC build artifacts ---
+*_ACLiC_*
+*_C.so
+*_C.d
+*.pcm
+*.rootmap
+
+# --- never tracked: raw event data and generator dumps ---
+z-*.root
+*-mic.py
+*.log
