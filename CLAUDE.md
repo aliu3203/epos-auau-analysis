@@ -28,8 +28,10 @@ deliberate: 150 GB of `z-*.root` sits in the same directories as the macros, so 
 plus one `git add .` would commit a 93 MB event file permanently. When adding a new file
 type worth tracking, add a `!pattern` line rather than removing the `*`.
 
-Remotes: `backup` → `/home/aliu/backup/auau-analysis.git` (bare, on the other physical
-disk `nvme0n1p3`; `git push backup main`).
+Remotes: `origin` → `git@github.com:aliu3203/epos-auau-analysis.git` (GitHub, over SSH;
+`main` tracks `origin/main`, so plain `git push` goes here). `backup` →
+`/home/aliu/backup/auau-analysis.git` (bare, on the other physical disk `nvme0n1p3`;
+`git push backup main`). Push both after meaningful work.
 
 **After a reboot**: `/media/Students` must be mounted *before* the scheduler daemon is
 restarted, or every `~/…startup.sh` symlink dangles and the epos runs fail at `source`.
