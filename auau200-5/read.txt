@@ -1,0 +1,20 @@
+AUAU 200 GeV
+Hydro + Core, no hacas
+
+application hadron
+set laproj 79
+set maproj 197
+set latarg 79
+set matarg 197
+set ecms 200.0
+set nfull 100
+set nfreeze 5
+set istmax 25
+set iranphi 1
+set ninicon 5
+set centrality 0
+core full
+hydro hlle
+eos x3ff
+hacas off
+fillTree4(C1)

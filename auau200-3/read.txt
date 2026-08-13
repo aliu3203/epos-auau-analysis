@@ -1,0 +1,19 @@
+AUAU-200GeV, 50k events over 5 jobs
+No hydro
+
+application hadron
+set laproj 79
+set maproj 197
+set latarg 79
+set matarg 197
+set ecms 200.0
+set nfull 10000
+set iseed 3998976
+set istmax 25
+set iranphi 1
+set ninicon 1
+core full
+hydro off
+eos x3ff
+hacas off
+fillTree4(C1)

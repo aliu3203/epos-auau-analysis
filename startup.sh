@@ -1,0 +1,12 @@
+export EPOVSN=4.0.0
+export MYDIR=$PWD/
+export EPO=${MYDIR}epos${EPOVSN}/
+export LIBDIR=${EPO}bin
+export OPT=./
+export HTO=./
+export CHK=./
+export FASTJETSYS=`/home/aliu/fastjet-install/bin/fastjet-config --prefix`
+export FASTSYS=${FASTJETSYS}
+export PATH=$PATH:$FASTSYS/bin
+export COP=BASIC
+export LD_LIBRARY_PATH=$ROOTSYS/lib:$ROOTSYS/lib/root:/usr/local/lib:$LD_LIBRARY_PATH

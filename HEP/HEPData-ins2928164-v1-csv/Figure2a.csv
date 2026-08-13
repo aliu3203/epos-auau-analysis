@@ -1,0 +1,21 @@
+#: table_doi: 10.17182/hepdata.159952.v1/t1
+#: name: Figure 2a
+#: description: Resolution of 1st-order event planes ($\Psi_{1}^{f}$ or $\Psi_{1}^{b}$) as a function of centrality in Au+Au collisions. The event planes were reconstructed from the ZDC-SMD at $\sqrt{s_{NN}}$ = 200 GeV (a), while the EPD was used at 7.7-27 GeV (b).
+#: data_file: Figure2a.yaml
+#: keyword reactions: Au+Au
+#: keyword cmenergies: 200
+#: keyword phrases: Spectator Plane Resolution
+#: Detector,,,STAR ZDC-SMD
+#: Collision species,,,Au+Au
+#: $\sqrt{s_{\rm NN}}$ [GeV],,,200
+$\rm Centrality$ [$\%$],$\rm Centrality$ [$\%$] LOW,$\rm Centrality$ [$\%$] HIGH,$Res_{1}$ [ ],stat +,stat -
+75.0,70.0,80.0,0.20324,2e-05,-2e-05
+65.0,60.0,70.0,0.23983,2e-05,-2e-05
+55.0,50.0,60.0,0.2703,2e-05,-2e-05
+45.0,40.0,50.0,0.28827,2e-05,-2e-05
+35.0,30.0,40.0,0.291,2e-05,-2e-05
+25.0,20.0,30.0,0.27499,2e-05,-2e-05
+15.0,10.0,20.0,0.23184,2e-05,-2e-05
+7.5,5.0,10.0,0.17221,3e-05,-3e-05
+2.5,0.0,5.0,0.10605,3e-05,-3e-05
+

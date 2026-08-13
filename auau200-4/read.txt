@@ -1,0 +1,22 @@
+AUAU-200GeV
+No hydro
+2000 nfull , 10 freeze events total, over 3
+
+
+application hadron
+set laproj 79
+set maproj 197
+set latarg 79
+set matarg 197
+set ecms 200.0
+set nfull 2000
+set nfreeze 10
+set istmax 25
+set iranphi 1
+set ninicon 5
+set centrality 0
+core off
+hydro hlle
+eos x3ff
+hacas off
+fillTree4(C1)
