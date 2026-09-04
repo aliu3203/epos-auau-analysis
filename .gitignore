@@ -42,3 +42,6 @@
 z-*.root
 *-mic.py
 *.log
+
+/HEP/
+

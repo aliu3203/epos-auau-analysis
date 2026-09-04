@@ -70,8 +70,15 @@ void MakeFigure_Cent_STAR(int poiMode = 0, int job = 0, double inclusiveCent = 3
         grab("pG112OS",ic,eg1OS[ic],eg1OSe[ic]);  grab("pG112SS",ic,eg1SS[ic],eg1SSe[ic]);
         grab("pG132OS",ic,eg3OS[ic],eg3OSe[ic]);  grab("pG132SS",ic,eg3SS[ic],eg3SSe[ic]);
         grab("pDOS",ic,edOS[ic],edOSe[ic]);       grab("pDSS",ic,edSS[ic],edSSe[ic]);
-        grab("pDg112",ic,eDg1[ic],eDg1e[ic]);     grab("pDg132",ic,eDg3[ic],eDg3e[ic]);
-        grab("pDd",ic,eDd[ic],eDde[ic]);
+        // Correlators_Cent.C no longer stores per-event Delta profiles: every term is
+        // filled individually into the OS/SS profiles, so Delta is formed here as
+        // OS - SS with the two profile errors added in quadrature.
+        eDg1[ic] = eg1OS[ic]-eg1SS[ic];
+        eDg1e[ic]= sqrt(eg1OSe[ic]*eg1OSe[ic] + eg1SSe[ic]*eg1SSe[ic]);
+        eDg3[ic] = eg3OS[ic]-eg3SS[ic];
+        eDg3e[ic]= sqrt(eg3OSe[ic]*eg3OSe[ic] + eg3SSe[ic]*eg3SSe[ic]);
+        eDd[ic]  = edOS[ic]-edSS[ic];
+        eDde[ic] = sqrt(edOSe[ic]*edOSe[ic] + edSSe[ic]*edSSe[ic]);
         ek1[ic]=hK112->GetBinContent(ic+1); ek1e[ic]=hK112->GetBinError(ic+1);
         ek3[ic]=hK132->GetBinContent(ic+1); ek3e[ic]=hK132->GetBinError(ic+1);
     }
